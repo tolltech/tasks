@@ -19,9 +19,9 @@ namespace JsonConversion
             };
 
             var before = JsonConvert.DeserializeObject<JsonV2>(json);
-            var products = Convert(before.products);
+            var products = Convert(before.Products);
             using (var writer = new JsonTextWriter(Console.Out))
-                serializer.Serialize(writer, new JsonV3 { version = "3", products = products });
+                serializer.Serialize(writer, new JsonV3 { Version = "3", Products = products });
 
             Console.ReadKey(true);
         }
@@ -31,34 +31,34 @@ namespace JsonConversion
             return
                 products.Select(
                     kvp =>
-                        new ItemV3 { id = kvp.Key, name = kvp.Value.name, count = kvp.Value.count, price = kvp.Value.price });
+                        new ItemV3 { Id = kvp.Key, Name = kvp.Value.Name, Count = kvp.Value.Count, Price = kvp.Value.Price });
         }
     }
 
     class ItemV2
     {
-        public string name { get; set; }
-        public double price { get; set; }
-        public int count { get; set; }
+        public string Name { get; set; }
+        public double Price { get; set; }
+        public int Count { get; set; }
     }
 
     class ItemV3
     {
-        public int id { get; set; }
-        public string name { get; set; }
-        public double price { get; set; }
-        public int count { get; set; }
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public double Price { get; set; }
+        public int Count { get; set; }
     }
 
     class JsonV2
     {
-        public string version { get; set; }
-        public IDictionary<int, ItemV2> products { get; set; }
+        public string Version { get; set; }
+        public IDictionary<int, ItemV2> Products { get; set; }
     }
 
     class JsonV3
     {
-        public string version { get; set; }
-        public IEnumerable<ItemV3> products { get; set; }
+        public string Version { get; set; }
+        public IEnumerable<ItemV3> Products { get; set; }
     }
 }
