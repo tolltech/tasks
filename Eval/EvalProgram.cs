@@ -13,7 +13,7 @@ namespace EvalTask
                 table.Columns.Add("expression", string.Empty.GetType(), input);
                 System.Data.DataRow row = table.NewRow();
                 table.Rows.Add(row);
-                Console.WriteLine("{0}", double.Parse((string)row["expression"]));
+                //Console.WriteLine("{0}", double.Parse((string)row["expression"]));
             }
             catch
             {
