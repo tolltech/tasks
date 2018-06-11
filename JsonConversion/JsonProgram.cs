@@ -23,7 +23,7 @@ namespace JsonConversion
             using (var writer = new JsonTextWriter(Console.Out))
                 serializer.Serialize(writer, new JsonV3 { Version = "3", Products = products });
 
-            Console.ReadKey(true);
+            //Console.ReadKey(true);
         }
 
         private static IEnumerable<ItemV3> Convert(IDictionary<int, ItemV2> products)
